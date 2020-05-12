@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <mat-toolbar color="warn">
+        <button mat-button [matMenuTriggerFor]="menu8">Registrar PQRSF</button>
+        <mat-menu #menu8="matMenu">
+            <button mat-menu-item [routerLink]="[ 'compania' ]">Inicio</button>
+        </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>

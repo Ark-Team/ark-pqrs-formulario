@@ -1,0 +1,14 @@
+<form #companiaForm="ngForm" class="cliente-form">
+    <mat-form-field class="cliente-full-width">
+        <mat-label>Companias</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let compania of companias" [value]="compania.compId"
+                (click)="getIdSelected(compania.compId)">
+                {{compania.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="loadFormulario()" class="btn btn-primary cliente-full-width"
+        color="primary">Registrar</button>
+</form>

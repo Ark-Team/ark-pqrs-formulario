@@ -1,0 +1,69 @@
+<h2 class="mat-tittle">Registrar PQRSF</h2>
+<form #companiaForm="ngForm" class="cliente-form">
+    <mat-form-field class="cliente-full-width">
+        <mat-label>Area</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let area of areas" [value]="area.areaId" (click)="getAreaIdSelected(area.areaId)">
+                {{area.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width">
+        <mat-label>Proceso</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let proceso of procesos" [value]="proceso.prosId"
+                (click)="getIdSelected(proceso.prosId)">
+                {{proceso.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width">
+
+        <input matInput placeholder="Nombre" [(ngModel)]="pqrs.nombre" #nombre type="text" name="nombre" id="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="cliente-full-width">
+        <input matInput placeholder="Email" [(ngModel)]="pqrs.email" #email type="text" name="email" id="email">
+    </mat-form-field>
+
+    <mat-form-field class="cliente-full-width">
+        <input matInput placeholder="Telefono" [(ngModel)]="pqrs.telefono" #telefono type="number" name="telefono"
+            id="telefono">
+    </mat-form-field>
+
+    <mat-form-field class="cliente-full-width" *ngIf="celular">
+        <input matInput placeholder="Celular" [(ngModel)]="pqrs.celular" #celular type="text" name="celular"
+            id="celular">
+    </mat-form-field>
+
+    <mat-form-field class="cliente-full-width" *ngIf="cuidad">
+        <input matInput placeholder="Cuidad" [(ngModel)]="pqrs.cuidad" #cuidad type="text" name="cuidad" id="cuidad">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="departamento">
+        <input matInput placeholder="departamento" [(ngModel)]="pqrs.departamento" #departamento type="text"
+            name="departamento" id="Departamento">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="direccion">
+        <input matInput placeholder="Direccion" [(ngModel)]="pqrs.direccion" #direccion type="text" name="direccion"
+            id="direccion">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="fax">
+        <input matInput placeholder="Fax" [(ngModel)]="pqrs.fax" #fax type="text" name="fax" id="fax">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="identificacion">
+        <input matInput placeholder="Identificacion" [(ngModel)]="pqrs.identificacion" #identificacion type="text"
+            name="identificacion" id="identificacion">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="lugar">
+        <input matInput placeholder="Lugar" [(ngModel)]="pqrs.lugar" #lugar type="text" name="lugar" id="lugar">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width" *ngIf="asunto">
+        <input matInput placeholder="Asunto" [(ngModel)]="pqrs.asunto" #asunto type="text" name="asunto" id="asunto">
+    </mat-form-field>
+    <mat-form-field class="cliente-full-width">
+        <mat-label>Descripcion (Max: 200 Caracteres)</mat-label>
+        <textarea matInput style="resize: none;" maxlength="200" rows="5" [(ngModel)]="pqrs.descripcion" #descripcion type="text"
+            name="descripcion" id="descripcion"></textarea>
+    </mat-form-field>
+    <button mat-raised-button (click)="save()" class="cliente-full-width" color="primary">Registrar</button>
+</form>
